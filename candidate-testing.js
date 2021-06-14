@@ -8,9 +8,9 @@ let candidateName = "";
 let question;
 let correctAnswer;
 let candidateAnswer;
-let questions;
-let correctAnswers;
-let candidateAnswers;
+let questions = [];
+let correctAnswers = ["Sally Ride"];
+let candidateAnswers = [];
 
 
 function askForName() {
@@ -25,16 +25,10 @@ function askQuestion() {
 let question = "Who was the first American woman in space? ";
 let correctAnswer = "Sally Ride";
 
+
 console.log(question);
 const x = require('readline-sync');
-let candidateAnswer = x.question("Enter answer: ");
-
-if (candidateAnswer.toLowerCase() === correctAnswer.toLowerCase()){
-  console.log("Correct!");
-}
-else {
-  console.log("Wrong.");
-}
+let candidateAnswer = candidateAnswers.push(x.question("Enter answer: "));
 
 }
 
@@ -42,11 +36,16 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-
-  let grade;
-  
-
+  let grade = "";
+  if (candidateAnswers[0].toLowerCase() === correctAnswers[0].toLowerCase()){
+    grade = "Correct!";
+  }
+  else {
+    grade = "Wrong";
+  }
+  //console.log(grade);
   return grade;
+  
 }
 
 function runProgram() {
@@ -54,7 +53,8 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   
   askQuestion();
-  gradeQuiz(this.candidateAnswers);
+  //gradeQuiz(this.candidateAnswers);
+  gradeQuiz(candidateAnswers);
 }
 
 // Don't write any code below this line //
