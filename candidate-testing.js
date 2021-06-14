@@ -53,8 +53,9 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   
   askQuestion();
-  //gradeQuiz(this.candidateAnswers);
-  gradeQuiz(candidateAnswers);
+  let x = gradeQuiz(this.candidateAnswers);
+  console.log(x);
+  //gradeQuiz(candidateAnswers);
 }
 
 // Don't write any code below this line //
