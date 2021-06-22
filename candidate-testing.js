@@ -61,7 +61,7 @@ function runProgram() {
   askQuestion();
  let gradePercent = gradeQuiz(this.candidateAnswers);
   //console.log(x);
-  //gradeQuiz(candidateAnswers);
+  gradeQuiz(candidateAnswers);
   let passFail = " ";
 if (gradePercent <= 3) {
    passFail = "FAILED";
