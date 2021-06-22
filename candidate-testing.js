@@ -51,7 +51,7 @@ for(let i =0; i < 5; i++){
   }
 }
 
-return grade;
+return grade/5 * 100;
 }
 
 function runProgram() {
@@ -91,7 +91,7 @@ Correct Answer: ${correctAnswers[3].charAt(0).toUpperCase() + correctAnswers[3].
 Your Answer: ${candidateAnswers[4]}
 Correct Answer: ${correctAnswers[4]}
 
->>> Overall Grade: ${gradePercent/5 * 100}% (${gradePercent} of 5 responses correct) <<<
+>>> Overall Grade: ${gradePercent}% (${(gradePercent/100) * 5} of 5 responses correct) <<<
 >>> Status: ${passFail} <<<
 `)
 }
