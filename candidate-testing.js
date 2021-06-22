@@ -47,22 +47,32 @@ function gradeQuiz(candidateAnswers) {
 for(let i =0; i < 5; i++){
   
   if(correctAnswers[i].toLowerCase() === candidateAnswers[i]) {
-    grade += 1;
+    grade++ ;
   }
 }
-let passFail = " ";
-if (grade <= 3) {
-   passFail = "FAILED";
-}
-else {
-   passFail = "PASSED";
-}
 
-grade = grade/5 * 100;
-console.log(`>>> Overall Grade: ${grade}% (${(grade/100) * 5} of 5 responses correct) <<<
->>> Status: ${passFail} <<<`)
+  grade = grade/5*100;  
+  console.log(`>>> Overall Grade: ${grade}% (${(grade/100) * 5} of 5 responses correct) <<<`)
+  if (grade >= 80) {
+    console.log(`>>> Status: PASSED <<<`)
+  } else { 
+    console.log(`>>> Status: FAILED <<<`)
+  }
+  return grade;
 
-return grade;
+// let passFail = " ";
+// if (grade <= 3) {
+//    passFail = "FAILED";
+// }
+// else {
+//    passFail = "PASSED";
+// }
+
+// grade = grade/5 * 100;
+// console.log(`>>> Overall Grade: ${grade}% (${(grade/100) * 5} of 5 responses correct) <<<
+// >>> Status: ${passFail} <<<`)
+
+// return grade;
 }
 
 function runProgram() {
@@ -70,10 +80,7 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   
   askQuestion();
- //let gradePercent = gradeQuiz(this.candidateAnswers);
-  //console.log(x);
-  
-  
+
   console.log(`
 Candidate Name: ${name}
 1) ${questions[0]}
@@ -96,7 +103,8 @@ Correct Answer: ${correctAnswers[3].charAt(0).toUpperCase() + correctAnswers[3].
 Your Answer: ${candidateAnswers[4]}
 Correct Answer: ${correctAnswers[4]}
 `)
-gradeQuiz(this.candidateAnswers);
+
+gradeQuiz(candidateAnswers);
 }
 
 // Don't write any code below this line //
