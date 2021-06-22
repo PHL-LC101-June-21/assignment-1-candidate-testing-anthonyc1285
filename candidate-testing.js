@@ -50,8 +50,19 @@ for(let i =0; i < 5; i++){
     grade += 1;
   }
 }
+let passFail = " ";
+if (grade <= 3) {
+   passFail = "FAILED";
+}
+else {
+   passFail = "PASSED";
+}
 
-return grade/5 * 100;
+grade = grade/5 * 100;
+console.log(`>>> Overall Grade: ${grade}% (${(grade/100) * 5} of 5 responses correct) <<<
+>>> Status: ${passFail} <<<`)
+
+return grade;
 }
 
 function runProgram() {
@@ -59,16 +70,10 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   
   askQuestion();
- let gradePercent = gradeQuiz(this.candidateAnswers);
+ //let gradePercent = gradeQuiz(this.candidateAnswers);
   //console.log(x);
-  gradeQuiz(candidateAnswers);
-  let passFail = " ";
-if (gradePercent <= 3) {
-   passFail = "FAILED";
-}
-else {
-   passFail = "PASSED";
-}
+  
+  
   console.log(`
 Candidate Name: ${name}
 1) ${questions[0]}
@@ -90,10 +95,8 @@ Correct Answer: ${correctAnswers[3].charAt(0).toUpperCase() + correctAnswers[3].
 5) ${questions[4]}
 Your Answer: ${candidateAnswers[4]}
 Correct Answer: ${correctAnswers[4]}
-
->>> Overall Grade: ${gradePercent}% (${(gradePercent/100) * 5} of 5 responses correct) <<<
->>> Status: ${passFail} <<<
 `)
+gradeQuiz(this.candidateAnswers);
 }
 
 // Don't write any code below this line //
